@@ -1,0 +1,18 @@
+This is a library for using the LPC2000 series of chips.  Presently there
+is support for LPC2101/2/3, LPC2104/5/6, LPC2131/2/4/6/8, and basic support
+for LPC2141/2/4/6/8 microcontrollers.  So far work has been with GCC compilers,
+though it should be easy to port to others.
+
+Most peripherals have base-level functions available (exceptions at present:
+I2C, USB).
+
+The format of this is meant to be similar to CMSIS interfaces for newer,
+Cortex-based MCUs to allow for easy forward / back porting.
+
+Almost all functions are defined as static inlines; this is primarily for
+speed, though it can certainly complicate debugging (I've run into issues
+with vendors libraries being much too slow, especially when using functions
+in interrupt handlers -- this is one of the big reasons I chose to start
+rolling my own libraries).
+
+This library is released under a 3-part BSD license.  
