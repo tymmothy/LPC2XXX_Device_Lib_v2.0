@@ -6,7 +6,7 @@ include ../../LPC2xxx.mk
 
 PHONY += all clean
 
-all: uart_noirq.bin
+all: uart_echo_noirq.bin
 
 uart_noirq.elf: libLPC2xxx.a
 
