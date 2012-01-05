@@ -131,11 +131,10 @@ uint8_t uart_getchar(UART_Type *uart)
 
 /** @brief  Initialize a UART for communication.
   *
-  * @param  [in]  uart     The UART on which to receive the character
+  * @param  [in]  uart     The UART to initialize
+  * @param  [in]  baud     Baud rate to configure on the UART
   *
-  * @return The received character
-  *
-  * Blocks until the UART has a character available to read.
+  * @return None.
   */
 void init_uart(UART_Type *uart, uint32_t baud)
 {
