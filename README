@@ -15,4 +15,4 @@ with vendors libraries being much too slow, especially when using functions
 in interrupt handlers -- this is one of the big reasons I chose to start
 rolling my own libraries).
 
-This library is released under a 3-part BSD license.  
+This library is released under a Simplified BSD license.  
