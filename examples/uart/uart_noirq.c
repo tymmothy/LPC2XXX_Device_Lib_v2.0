@@ -1,10 +1,13 @@
 /******************************************************************************
- * @file:    uart_noirq.c
+ * @file:    uart_echo_noirq.c
  * @purpose: Example / test program for LPC2xxx UART interface
  * @version: V1.0
  * @author:  Tymm Twillman
  * @date:    3. Januart 2012
  * @license: Simplified BSD License
+ *
+ * Echoes characters received on UART.
+ *
  ******************************************************************************
  * Copyright (c) 2012, Timothy Twillman
  * All rights reserved.
@@ -48,9 +51,16 @@
 #include "system_LPC2xxx.h"     /* For SystemCoreClock          */
 
 
+/* Defines ------------------------------------------------------------------*/
+
 /* Default to using UART0 */
 #ifndef UART
 # define UART UART0
+#endif
+
+/* Default to 38400 baud */
+#ifndef BAUD
+# define BAUD 38400
 #endif
 
 
@@ -198,7 +208,7 @@ void init_uart(UART_Type *uart, uint32_t baud)
 
 /** @brief  Main function for UART example / test program.
   *
-  * @return None.
+  * @return None (never returns).
   *
   * Sits in a loop waiting for characters on the given UART, then sends
   *  a string telling what it got.
@@ -210,8 +220,8 @@ int main()
     uint8_t c;
 
 
-    /* Set up uart for 8n2, 38400 baud */
-    init_uart(uart, 38400);
+    /* Set up uart for 8n2 */
+    init_uart(uart, BAUD);
 
     uart_putstr(uart, "Now echoing characters: ");
 
@@ -223,6 +233,4 @@ int main()
             
         }
     }
-    
-    return 0;
 }
