@@ -156,7 +156,7 @@ __INLINE static void GPIO_WritePins(GPIO_Type *GPIO, uint32_t Pins, uint32_t Bit
   *  e.g. if Pins == GPIO_Pin_3 and pin 3 on that port is high, it will
   *  return a binary "1" in bit position 3.
   */
-__INLINE static uint16_t GPIO_ReadPins(GPIO_Type *GPIO, uint32_t Pins)
+__INLINE static uint32_t GPIO_ReadPins(GPIO_Type *GPIO, uint32_t Pins)
 {
     return GPIO->PIN & Pins;
 }
@@ -206,7 +206,7 @@ __INLINE static void GPIO_SetPinDirections(GPIO_Type *GPIO, uint32_t Pins,
   * @param  Pin    The pin for which to get the direction   
   * @return None.
   */
-__INLINE static uint16_t GPIO_GetPinDirection(GPIO_Type *GPIO, uint16_t Pin)
+__INLINE static uint32_t GPIO_GetPinDirection(GPIO_Type *GPIO, uint32_t Pin)
 {
     lpc2xxx_lib_assert(GPIO_IS_PIN_TYPE(Pin));
     
